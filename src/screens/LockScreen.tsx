@@ -26,8 +26,10 @@ const LockScreen = () => {
         const checkPasscode = async () => {
             if (animate === 4) {
                 const savedPin = await AsyncStorage.getItem('savedPin');
-                if (pin.join('') == '5555') {
-                    await AsyncStorage.setItem('savedPin', null);
+                console.log(typeof(pin.join('')),typeof('5555'),pin.join(''),'5555',pin.join('')==='5555',  'resetcode');
+                if (pin.join('') === '5555') {
+                    await AsyncStorage.setItem('savedPin', '0');
+                    console.log("resetcode2");  
                 }
                 if (pin.join('') == savedPin) {
                     console.log(savedPin, 'savedpinxx');

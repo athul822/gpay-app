@@ -7,6 +7,9 @@ import store from './src/store/store'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import HomeScreen from './src/screens/HomeScreen';
+import MapViewScreen from './src/hunt/MapViewScreen';
+import LeafMap from './src/hunt/LeafMap';
+import GeoLoc from './src/hunt/GeoLoc';
 
 const App = () => {
   const Stack = createStackNavigator();
@@ -17,7 +20,11 @@ const App = () => {
   return (
     <Provider store={store}>
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='LockScreen'>
+            <Stack.Navigator initialRouteName='LeafMap'>
+            <Stack.Screen name="LeafMap" options={{headerShown: false}} component={LeafMap} />
+            <Stack.Screen name="GeoLoc" options={{headerShown: false}} component={GeoLoc} />
+
+            <Stack.Screen name="MapView" options={{headerShown: false}} component={MapViewScreen} />
                 <Stack.Screen name="LockScreen" options={{headerShown: false}} component={LockScreen} />
                 <Stack.Screen name="HomeScreen" options={{headerShown: false}} component={HomeScreen} />
             </Stack.Navigator>
